@@ -4,24 +4,46 @@
   "description": "Quickly copy file names",
   "version": "0.0.1",
   "publisher": "ouweiya",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ouweiya/copy-file-name.git"
+  },
   "engines": {
     "vscode": "^1.41.0"
   },
+  "keywords": [
+    "sidebar",
+    "copy-filename",
+    "clipboard",
+    "file",
+    "folder"
+  ],
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onCommand:extension.copyFileName"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+        "command": "extension.copyFileName",
+        "title": "复制文件名"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.copyFileName"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "extension.copyFileName"
+        }
+      ]
+    }
   },
   "scripts": {
     "test": "node ./test/runTest.js"
@@ -36,5 +58,9 @@
     "mocha": "^6.2.2",
     "typescript": "^3.6.4",
     "vscode-test": "^1.2.2"
+  },
+  "dependencies": {
+    "clipboardy": "^2.1.0",
+    "hoek": "^6.1.3"
   }
 }

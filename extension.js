@@ -1,37 +1,40 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+//Required modules
 const vscode = require('vscode');
+const clipboardy = require('clipboardy');
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+//Set error view
+const showError = message => vscode.window.showErrorMessage(`Copy filename: ${message}`);
+const showWarning = message => vscode.window.setStatusBarMessage(`${message}`, 3000);
 
-/**
- * @param {vscode.ExtensionContext} context
- */
-function activate(context) {
+exports.activate = context => {
+  //Register command
+  const copyFilename = vscode.commands.registerCommand('extension.copyFileName', (uri, files) => {
+    let accumulator = '';
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "copy-file-name" is now active!');
+    if (typeof files !== 'undefined' && files.length > 0) {
+      files.forEach(el => {
+        //get the relative url, parse it and take the last part
+        let url = vscode.workspace.asRelativePath(el.path);
+        let urlFormatted = url.replace(/\\/g, '/');
+        accumulator += urlFormatted.split('/').pop();
+      });
+    } else if (uri) {
+      let url = vscode.workspace.asRelativePath(uri);
+      let urlFormatted = url.replace(/\\/g, '/');
+      accumulator += urlFormatted.split('/').pop();
+    }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
+    //Copy the last part to clipboard
+    let filename = '';
+    const i = accumulator.lastIndexOf('.');
+    if (i === -1) {
+      filename = accumulator;
+    } else {
+      filename = accumulator.slice(0, i);
+    }
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
-	});
+    clipboardy.write(filename).then(showWarning(`Filename/s has been copied to clipboard`));
+  });
 
-	context.subscriptions.push(disposable);
-}
-exports.activate = activate;
-
-// this method is called when your extension is deactivated
-function deactivate() {}
-
-module.exports = {
-	activate,
-	deactivate
-}
+  context.subscriptions.push(copyFilename);
+};
