@@ -2,12 +2,17 @@
   "name": "copy-file-name",
   "displayName": "Copy file name",
   "description": "Quickly copy file names",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "publisher": "ouweiya",
   "repository": {
     "type": "git",
     "url": "https://github.com/ouweiya/copy-file-name.git"
   },
+  "galleryBanner": {
+    "color": "#000",
+    "theme": "light"
+  },
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.41.0"
   },
