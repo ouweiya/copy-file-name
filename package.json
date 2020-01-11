@@ -2,7 +2,7 @@
   "name": "copy-file-name",
   "displayName": "Copy file name",
   "description": "Quickly copy file names",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "publisher": "ouweiya",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   },
   "galleryBanner": {
     "color": "#000",
-    "theme": "light"
+    "theme": "dark"
   },
   "icon": "icon.png",
   "engines": {
@@ -34,18 +34,20 @@
     "commands": [
       {
         "command": "extension.copyFileName",
-        "title": "复制文件名"
+        "title": "%extension.commands.copyFileName.title%"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.copyFileName"
+          "command": "extension.copyFileName",
+          "group": "6_copypath"
         }
       ],
       "editor/title/context": [
         {
-          "command": "extension.copyFileName"
+          "command": "extension.copyFileName",
+          "group": "5_cutcopypaste"
         }
       ]
     }
