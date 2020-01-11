@@ -24,10 +24,10 @@ exports.activate = context => {
       accumulator += urlFormatted.split('/').pop();
     }
 
-    //Copy the last part to clipboard
+    // Copy the last part to clipboard
     let filename = '';
     const i = accumulator.lastIndexOf('.');
-    if (i === -1) {
+    if (i < 1) {
       filename = accumulator;
     } else {
       filename = accumulator.slice(0, i);
