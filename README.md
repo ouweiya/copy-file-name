@@ -7,3 +7,4 @@ Before this: `index.html`
 Now it is: `index`
 
 [Demo](img/Demo.gif)
+[Demo](https://raw.githubusercontent.com/ouweiya/copy-file-name/master/img/Demo.gif)
