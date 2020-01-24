@@ -26,14 +26,15 @@ exports.activate = context => {
 
     // Copy the last part to clipboard
     let filename = '';
-    const i = accumulator.lastIndexOf('.');
+    const i = accumulator.indexOf('.');
     if (i < 1) {
       filename = accumulator;
     } else {
       filename = accumulator.slice(0, i);
     }
 
-    clipboardy.write(filename).then(showWarning(`Filename/s has been copied to clipboard`));
+    clipboardy.write(filename);
+    // .then(showWarning(`Filename/s has been copied to clipboard`));
   });
 
   context.subscriptions.push(copyFilename);

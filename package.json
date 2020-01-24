@@ -2,7 +2,7 @@
   "name": "copy-file-name",
   "displayName": "Copy file name",
   "description": "Quickly copy file names",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "publisher": "ouweiya",
   "repository": {
     "type": "git",
