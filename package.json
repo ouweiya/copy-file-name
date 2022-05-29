@@ -3,11 +3,11 @@
   "displayName": "Copy File Name",
   "description": "Quickly copy file names and console-utils",
   "publisher": "ouweiya",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ouweiya/quick-console-log.git"
+    "url": "https://github.com/ouweiya/copy-file-name.git"
   },
   "engines": {
     "vscode": "^1.67.0"
