@@ -1,11 +1,21 @@
 ### Use concise code completion, using ES6 and minus redundant code.
 
-Contains features:
+**Contains features:**
 
 - Copy File Name
 - Quickly print `console.log` (keyboard shortcuts: `ctrl+shift+l`)
 
-**copy filename**
+Copy filename, file context menu and tab context menu.
+
+![copy-filename.png](img/copy-filename.png)
+
+Quickly print `console.log`
+
+key: `ctrl+shift+l`
+
+![log.gif](img/log.gif)
+
+**copy filename code**
 
 ```js
 vscode.commands.registerCommand('copy-filename', fs => {
@@ -13,7 +23,7 @@ vscode.commands.registerCommand('copy-filename', fs => {
 });
 ```
 
-**print console.log**
+**print console.log code**
 
 ```js
 vscode.commands.registerCommand('quick-console-log', () => {
@@ -26,13 +36,3 @@ vscode.commands.registerCommand('quick-console-log', () => {
     : editor.insertSnippet(new vscode.SnippetString(`console.log($0);`));
 });
 ```
-
-Copy filename, file context menu and tab context menu.
-
-![copy-filename.png](img/copy-filename.png)
-
-Quickly print `console.log`
-
-key: `ctrl+shift+l`
-
-![log.gif](img/log.gif)
