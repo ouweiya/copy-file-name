@@ -29,10 +29,10 @@ vscode.commands.registerCommand('quick-console-log', () => {
 
 Copy filename, file context menu and tab context menu.
 
-![copy-filename.png](img%5Ccopy-filename.png)
+![copy-filename.png](img/copy-filename.png)
 
 Quickly print `console.log`
 
 key: `ctrl+shift+l`
 
-![log.gif](img%5Clog.gif)
+![log.gif](img/log.gif)
