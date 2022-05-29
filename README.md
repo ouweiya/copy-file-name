@@ -36,5 +36,3 @@ Quickly print `console.log`
 key: `ctrl+shift+l`
 
 ![log.gif](img/log.gif)
-
-a
