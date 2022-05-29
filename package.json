@@ -1,16 +1,24 @@
 {
-  "name": "quick-console-log",
-  "displayName": "quick console.log",
-  "description": "Quickly print console.log",
-  "version": "0.0.1",
+  "name": "copy-file-name",
+  "displayName": "Copy File Name",
+  "description": "Quickly copy file names and console-utils",
+  "publisher": "ouweiya",
+  "version": "3.0.0",
   "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/ouweiya/quick-console-log.git"
   },
   "engines": {
-    "vscode": "^1.5.0"
+    "vscode": "^1.67.0"
   },
+  "keywords": [
+    "copy file name",
+    "copy-file-name",
+    "folder name",
+    "copy folder name",
+    "console"
+  ],
   "categories": [
     "Other"
   ],
@@ -31,13 +39,13 @@
       },
       {
         "command": "copy-filename",
-        "title": "Copy FileName"
+        "title": "%copy-filename%"
       }
     ],
     "keybindings": [
       {
         "command": "quick-console-log",
-        "key": "shift+ctrl+l",
+        "key": "ctrl+shift+l",
         "when": "editorTextFocus"
       }
     ],
@@ -45,21 +53,20 @@
       "explorer/context": [
         {
           "command": "copy-filename",
-          "group": "6_copypath"
+          "group": "6_copypath@-10"
         }
       ],
       "editor/title/context": [
         {
           "command": "copy-filename",
-          "group": "1_cutcopypaste"
+          "group": "1_cutcopypaste@-10"
         }
       ]
     }
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.67.0",

@@ -1,13 +1,38 @@
+### Use concise code completion, using ES6 and minus redundant code.
 
+Contains features:
 
-// console.log(text.split(/[\\|\/]/));
-// console.log(text.split(/[\\|\/]/).at(-1));
+- Copy File Name
+- Quickly print `console.log` (keyboard shortcuts: `ctrl+shift+l`)
 
-// console.log(fs.path.split('/'));
-// vscode.env.clipboard.writeText(fs.path.split(/[\\|\/]/).at(-1));
+**copy filename**
 
-// vscode.env.clipboard.readText().then(text => vscode.env.clipboard.writeText(text.split(/[\\|\/]/).at(-1)));
+```js
+vscode.commands.registerCommand('copy-filename', fs => {
+  vscode.env.clipboard.writeText(fs.path.split('/').at(-1));
+});
+```
 
-/*  vscode.commands.executeCommand('copyRelativeFilePath').then(() => {
-vscode.env.clipboard.readText().then(text => vscode.env.clipboard.writeText(text.split(/[\\|\/]/).at(-1)));
-}); */
+**print console.log**
+
+```js
+vscode.commands.registerCommand('quick-console-log', () => {
+  const editor = vscode.window.activeTextEditor;
+  const selectedText = editor.document.getText(editor.selection).trim();
+  selectedText
+    ? vscode.commands.executeCommand('editor.action.insertLineAfter').then(() => {
+        editor.insertSnippet(new vscode.SnippetString(`console.log('${selectedText}', ${selectedText});`));
+      })
+    : editor.insertSnippet(new vscode.SnippetString(`console.log($0);`));
+});
+```
+
+Copy filename, file context menu and tab context menu.
+
+![copy-filename.png](img%5Ccopy-filename.png)
+
+Quickly print `console.log`
+
+key: `ctrl+shift+l`
+
+![log.gif](img%5Clog.gif)
