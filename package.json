@@ -4,22 +4,34 @@
   "description": "Quickly print console.log",
   "version": "0.0.1",
   "icon": "icon.png",
-
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ouweiya/quick-console-log.git"
+  },
   "engines": {
     "vscode": "^1.5.0"
   },
   "categories": [
     "Other"
   ],
+  "galleryBanner": {
+    "color": "#232323",
+    "theme": "dark"
+  },
   "activationEvents": [
-    "onCommand:quick-console-log"
+    "onCommand:quick-console-log",
+    "onCommand:copy-filename"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "quick-console-log",
-        "title": "Quick console log"
+        "title": "Quick console.log"
+      },
+      {
+        "command": "copy-filename",
+        "title": "Copy FileName"
       }
     ],
     "keybindings": [
@@ -28,7 +40,21 @@
         "key": "shift+ctrl+l",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-filename",
+          "group": "6_copypath"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "copy-filename",
+          "group": "1_cutcopypaste"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",

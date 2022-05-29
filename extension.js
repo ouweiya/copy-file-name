@@ -1,21 +1,19 @@
 const vscode = require('vscode');
 
-const activate = context => {
+module.exports.activate = context => {
   const qcl = vscode.commands.registerCommand('quick-console-log', () => {
     const editor = vscode.window.activeTextEditor;
-    const selection = editor.selection;
-    const selectedText = editor.document.getText(selection);
-
-    console.log('txt', selectedText);
-
-    vscode.commands.executeCommand('editor.action.insertLineAfter').then(() => {
-      selectedText
-        ? editor.insertSnippet(new vscode.SnippetString(`console.log('${selectedText}', ${selectedText});`))
-        : editor.insertSnippet(new vscode.SnippetString(`console.log();`));
-    });
+    const selectedText = editor.document.getText(editor.selection).trim();
+    selectedText
+      ? vscode.commands.executeCommand('editor.action.insertLineAfter').then(() => {
+          editor.insertSnippet(new vscode.SnippetString(`console.log('${selectedText}', ${selectedText});`));
+        })
+      : editor.insertSnippet(new vscode.SnippetString(`console.log($0);`));
   });
 
-  context.subscriptions.push(qcl);
-};
+  const cf = vscode.commands.registerCommand('copy-filename', fs => {
+    vscode.env.clipboard.writeText(fs.path.split('/').at(-1));
+  });
 
-module.exports.activate = activate;
+  context.subscriptions.push(qcl, cf);
+};
