@@ -1,9 +1,9 @@
 {
   "name": "copy-file-name",
   "displayName": "Copy File Name",
-  "description": "Quickly copy file names and console-utils",
+  "description": "Copy filename and quickly print console.log",
   "publisher": "ouweiya",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "icon": "icon.png",
   "repository": {
     "type": "git",
