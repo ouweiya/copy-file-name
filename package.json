@@ -3,7 +3,7 @@
   "displayName": "Copy File Name",
   "description": "Quickly copy file names and console-utils",
   "publisher": "ouweiya",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "icon": "icon.png",
   "repository": {
     "type": "git",
