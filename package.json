@@ -24,7 +24,7 @@
   ],
   "galleryBanner": {
     "color": "#232323",
-    "theme": "dark"
+    "theme": "light"
   },
   "activationEvents": [
     "onCommand:quick-console-log",
