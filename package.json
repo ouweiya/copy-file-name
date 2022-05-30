@@ -3,7 +3,7 @@
   "displayName": "Copy File Name",
   "description": "Copy filename and quickly print console.log",
   "publisher": "ouweiya",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "icon": "icon.png",
   "repository": {
     "type": "git",
