@@ -18,6 +18,14 @@ key: `ctrl+shift+l`
 
 ![log.gif](img/log.gif)
 
+**Configuration**
+
+Print a semicolon at the end of console.log.
+
+```json
+"quickConsoleLog.semicolon": true
+```
+
 **Change Case**
 
 Powered with [change-case](https://github.com/blakeembrey/change-case).
