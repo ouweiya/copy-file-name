@@ -3,7 +3,7 @@
   "displayName": "Copy File Name",
   "description": "Copy filename and change case and quickly print console.log",
   "publisher": "ouweiya",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "icon": "icon.png",
   "repository": {
     "type": "git",
